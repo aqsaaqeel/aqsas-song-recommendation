@@ -4,31 +4,43 @@ import "./styles.css";
 var catalog = {
   pop: [
     {
-      name: "The Kid LAROI, Justin Bieber - STAY ",
-      rating: "4.5"
+      name: "-->  The Kid LAROI, Justin Bieber - STAY ",
+      rating: "4.1"
     },
     {
-      name: " Bella Poarch - Inferno",
+      name: "-->  Bella Poarch - Inferno",
       rating: "4.0"
+    },
+    {
+      name: "-->  One Republic - Counting Stars",
+      rating: "4.3"
     }
   ],
   rock: [
     {
-      name: "Panic! At the disco - Northern Downpour ",
+      name: "-->  Panic! At the disco - Northern Downpour ",
       rating: "5.0"
     },
     {
-      name: " Twenty One Pilots - Shy Away",
+      name: "-->  Twenty One Pilots - Shy Away",
       rating: "4.8"
+    },
+    {
+      name: "-->  Green Day - Time Of Your Life",
+      rating: "5.0"
     }
   ],
   indie: [
     {
-      name: "Damine Rice - Blower's Daughter ",
+      name: "-->  Damien Rice - Blower's Daughter ",
       rating: "4.7"
     },
     {
-      name: "Phum Viphurit - Pluto",
+      name: "-->  Phum Viphurit - Pluto",
+      rating: "4.3"
+    },
+    {
+      name: "-->  Dodie - Human",
       rating: "4.3"
     }
   ]
