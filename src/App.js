@@ -1,45 +1,101 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-var musicGenre = {
-  pop: ["The Kid LAROI, Justin Bieber - STAY ", "|| Bella Poarch - Inferno"],
-  rock: [
-    "Panic! At the disco - Northern Downpour ",
-    "|| Twenty One Pilots - Shy Away"
+var catalog = {
+  pop: [
+    {
+      name: "The Kid LAROI, Justin Bieber - STAY ",
+      rating: "4.5"
+    },
+    {
+      name: " Bella Poarch - Inferno",
+      rating: "4.0"
+    }
   ],
-  indie: ["Damine Rice - Blower's Daughter ", "|| Phum Viphurit - Pluto"]
+  rock: [
+    {
+      name: "Panic! At the disco - Northern Downpour ",
+      rating: "5.0"
+    },
+    {
+      name: " Twenty One Pilots - Shy Away",
+      rating: "4.8"
+    }
+  ],
+  indie: [
+    {
+      name: "Damine Rice - Blower's Daughter ",
+      rating: "4.7"
+    },
+    {
+      name: "Phum Viphurit - Pluto",
+      rating: "4.3"
+    }
+  ]
 };
 
-var songsRecommended = Object.keys(musicGenre);
+var genres = Object.keys(catalog);
 
 export default function App() {
-  var [meaning, setMeaning] = useState("");
+  var [songs, setSongs] = useState([]);
 
-  function genreChangeHandler(song) {
-    var meaning = musicGenre[song];
-    setMeaning(meaning);
+  function genreChangeHandler(genre) {
+    var songs = catalog[genre];
+    setSongs(songs);
   }
 
   return (
-    <div className="App">
-      <h3> Song recommendation </h3>
-      {songsRecommended.map(function (song) {
-        return (
-          <button
-            onClick={() => genreChangeHandler(song)}
-            style={{
-              fontSize: "1rem",
-              padding: "0.5rem 1rem",
-              margin: "1rem",
-              cursor: "pointer"
-            }}
-            key={song}
-          >
-            {song}
-          </button>
-        );
-      })}
-      <div> {meaning} </div>
+    <div
+      className="App"
+      style={{
+        textAlign: "left",
+        width: "70%"
+      }}
+    >
+      <h3
+        style={{
+          fontSize: "2rem",
+          backgroundColor: "black",
+          color: "white",
+          padding: "1rem"
+        }}
+      >
+        {" "}
+        => Song recommendations{" "}
+      </h3>
+      <div>
+        <p> here are some of the songs I really like </p>
+        {genres.map(function (genre, index) {
+          return (
+            <button
+              onClick={() => genreChangeHandler(genre)}
+              style={{
+                fontSize: "1rem",
+                padding: "0.5rem 1rem",
+                margin: "1rem",
+                cursor: "pointer",
+                borderRadius: "1rem"
+              }}
+              key={index}
+            >
+              {genre}
+            </button>
+          );
+        })}
+      </div>
+      <hr></hr>
+      <div>
+        {songs.map(function (song, index) {
+          return (
+            <div key={index}>
+              <p style={{ color: "black" }}>{song.name}</p>
+              <span style={{ color: "#EEBC1D" }}>
+                {"⭐ " + song.rating + " / 5"}
+              </span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
